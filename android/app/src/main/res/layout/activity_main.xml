@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#050811"
+    android:padding="8dp">
+
+    <!-- Top Tactical HUD Banner -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#0B1220"
+        app:cardCornerRadius="6dp"
+        app:strokeColor="#00F0FF"
+        app:strokeWidth="1dp"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvBaseNodeId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TRIAGIX STATION: [INIT]"
+                android:textColor="#00F0FF"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvTopStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PORTS: 50000 | 50001 | 50002"
+                android:textColor="#5C708A"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Main Workspace -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Left 5-Tab Navigation Rail -->
+        <LinearLayout
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="#0B1220"
+            android:padding="3dp">
+
+            <Button
+                android:id="@+id/tabCalls"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="📞\nCALLS"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:textColor="#050811"
+                android:backgroundTint="#00F0FF"
+                android:padding="1dp"
+                android:layout_marginBottom="5dp" />
+
+            <Button
+                android:id="@+id/tabMsg"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="💬\nMSG"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:textColor="#5C708A"
+                android:backgroundTint="#121C2B"
+                android:padding="1dp"
+                android:layout_marginBottom="5dp" />
+
+            <Button
+                android:id="@+id/tabPeers"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="🌐\nPEERS"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:textColor="#5C708A"
+                android:backgroundTint="#121C2B"
+                android:padding="1dp"
+                android:layout_marginBottom="5dp" />
+
+            <Button
+                android:id="@+id/tabMap"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="🗺️\nMAP"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:textColor="#5C708A"
+                android:backgroundTint="#121C2B"
+                android:padding="1dp"
+                android:layout_marginBottom="5dp" />
+
+            <!-- NEW HEALTHCARE AI TAB -->
+            <Button
+                android:id="@+id/tabMed"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="🏥\nMED"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:textColor="#5C708A"
+                android:backgroundTint="#121C2B"
+                android:padding="1dp" />
+        </LinearLayout>
+
+        <!-- Right Windows -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp">
+
+            <!-- WINDOW 1: CALLS -->
+            <LinearLayout
+                android:id="@+id/windowCalls"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#0B1220"
+                    app:cardCornerRadius="8dp"
+                    app:strokeColor="#1F3354"
+                    app:strokeWidth="1dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TRIAGIX VOICE ENGINE [PORT 50002]"
+                            android:textColor="#00F0FF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCallState"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STATUS: 🔴 DISCONNECTED (MUTED)"
+                            android:textColor="#FF2A2A"
+                            android:textStyle="bold"
+                            android:textSize="13sp"
+                            android:layout_marginTop="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mode: Full-Duplex Stream | 48kHz PCM"
+                            android:textColor="#5C708A"
+                            android:textSize="11sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/btnCallStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="🟢 START VOICE CALL"
+                    android:textColor="#050811"
+                    android:textStyle="bold"
+                    android:backgroundTint="#00F0FF"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btnCallCut"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="🔴 CUT CALL (END)"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:backgroundTint="#331018"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- WINDOW 2: MESSAGES -->
+            <LinearLayout
+                android:id="@+id/windowMsg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MESH PACKET CONSOLE [PORT 50001]"
+                    android:textColor="#00F0FF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <ScrollView
+                    android:id="@+id/svLogContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#0B1220"
+                    android:padding="8dp"
+                    android:fillViewport="true">
+
+                    <TextView
+                        android:id="@+id/tvConsoleLogs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="[*] TRIAGIX Mesh Monitor Online...\n"
+                        android:textColor="#E0F7FA"
+                        android:fontFamily="monospace"
+                        android:textSize="11sp" />
+                </ScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <EditText
+                        android:id="@+id/etTargetIp"
+                        android:layout_width="75dp"
+                        android:layout_height="44dp"
+                        android:hint="all/IP"
+                        android:textColor="#00F0FF"
+                        android:textColorHint="#5C708A"
+                        android:background="#121C2B"
+                        android:paddingHorizontal="6dp"
+                        android:textSize="11sp"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/etMessage"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:hint="Type payload..."
+                        android:textColor="#E0F7FA"
+                        android:textColorHint="#5C708A"
+                        android:background="#121C2B"
+                        android:paddingHorizontal="8dp"
+                        android:textSize="12sp"
+                        android:singleLine="true"
+                        android:layout_marginStart="4dp" />
+
+                    <Button
+                        android:id="@+id/btnSendMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:text="SEND"
+                        android:textColor="#050811"
+                        android:backgroundTint="#00F0FF"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- WINDOW 3: PEERS -->
+            <LinearLayout
+                android:id="@+id/windowPeers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="DISCOVERED NODES [PORT 50000]"
+                        android:textColor="#00F0FF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvPeerSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ONLINE: 0"
+                        android:textColor="#39FF14"
+                        android:textStyle="bold"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#0B1220"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/tvPeerListWindow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Scanning for active node beacons...\nAuto-cleanup threshold: 30s"
+                        android:textColor="#5C708A"
+                        android:fontFamily="monospace"
+                        android:textSize="11sp" />
+                </ScrollView>
+            </LinearLayout>
+
+            <!-- WINDOW 4: TACTICAL MAP & 2-WAY DUAL STREAM -->
+            <LinearLayout
+                android:id="@+id/windowMap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <org.osmdroid.views.MapView
+                    android:id="@+id/osmMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <Button
+                        android:id="@+id/btnToggle2WayLoc"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:text="📡 START 2-WAY LOC"
+                        android:textColor="#050811"
+                        android:textStyle="bold"
+                        android:backgroundTint="#00F0FF"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btnSosQuick"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:text="🚨 GEO SOS"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:backgroundTint="#D50000"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#0B1220"
+                    app:cardCornerRadius="8dp"
+                    app:strokeColor="#00F0FF"
+                    app:strokeWidth="1dp"
+                    android:layout_marginTop="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/tvTargetTelemetryTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TARGET: NO ACTIVE PEER"
+                            android:textColor="#00F0FF"
+                            android:textStyle="bold"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvTargetDistance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Displacement: --- m"
+                            android:textColor="#39FF14"
+                            android:textStyle="bold"
+                            android:textSize="13sp"
+                            android:layout_marginTop="1dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:id="@+id/tvEtaFoot"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🚶 On Foot\n-- mins"
+                                android:textColor="#E0F7FA"
+                                android:textSize="10sp"
+                                android:fontFamily="monospace" />
+
+                            <TextView
+                                android:id="@+id/tvEtaBike"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🚴 Bicycle\n-- mins"
+                                android:textColor="#E0F7FA"
+                                android:textSize="10sp"
+                                android:fontFamily="monospace" />
+
+                            <TextView
+                                android:id="@+id/tvEtaVehicle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🚙 Vehicle\n-- mins"
+                                android:textColor="#E0F7FA"
+                                android:textSize="10sp"
+                                android:fontFamily="monospace" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- ================= WINDOW 5: HEALTHCARE AI & 108 EMERGENCY ================= -->
+            <LinearLayout
+                android:id="@+id/windowMed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRIAGIX HEALTHCARE AI  FIRST-AID DECISION ENGINE"
+                    android:textColor="#00F0FF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <!-- 4 Quick Medical Scenarios Grid -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+
+                    <Button
+                        android:id="@+id/btnMedBurn"
+                        android:layout_width="0dp"
+                        android:layout_height="46dp"
+                        android:layout_weight="1"
+                        android:text="🔥 BURN"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#D84315"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="3dp" />
+
+                    <Button
+                        android:id="@+id/btnMedBleed"
+                        android:layout_width="0dp"
+                        android:layout_height="46dp"
+                        android:layout_weight="1"
+                        android:text="🩸 BLEEDING"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#C2185B"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="3dp" />
+
+                    <Button
+                        android:id="@+id/btnMedCpr"
+                        android:layout_width="0dp"
+                        android:layout_height="46dp"
+                        android:layout_weight="1"
+                        android:text="💓 CPR / STOP"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#7B1FA2"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="3dp" />
+
+                    <Button
+                        android:id="@+id/btnMedFracture"
+                        android:layout_width="0dp"
+                        android:layout_height="46dp"
+                        android:layout_weight="1"
+                        android:text="🦴 FRACTURE"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#00838F"
+                        android:textStyle="bold"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <!-- Medical Decision Guidance Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#0B1220"
+                    app:cardCornerRadius="8dp"
+                    app:strokeColor="#FF2A2A"
+                    app:strokeWidth="1dp"
+                    android:layout_marginBottom="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tvMedConditionTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SELECT EMERGENCY CONDITION ABOVE"
+                            android:textColor="#FF2A2A"
+                            android:textStyle="bold"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvMedTriageTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TRIAGE LEVEL: READY FOR ASSESSMENT"
+                            android:textColor="#39FF14"
+                            android:textStyle="bold"
+                            android:textSize="11sp"
+                            android:layout_marginTop="2dp" />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="6dp">
+
+                            <TextView
+                                android:id="@+id/tvMedGuidanceSteps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Offline Clinical Decision Engine ready.\n• Instant step-by-step life saving actions will appear here.\n• Automatic 108 Emergency call dialer triggers on critical trauma."
+                                android:textColor="#E0F7FA"
+                                android:fontFamily="sans-serif"
+                                android:textSize="12sp"
+                                android:lineSpacingExtra="3dp" />
+                        </ScrollView>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Direct Emergency Action Controls -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Automated 108 Emergency Dialer -->
+                    <Button
+                        android:id="@+id/btnCall108Emergency"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="🚑 DIAL 108 AMBULANCE"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:backgroundTint="#D50000"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="4dp" />
+
+                    <!-- Send Triage Data over Tactical Mesh -->
+                    <Button
+                        android:id="@+id/btnSendMedicalMesh"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="📡 DISPATCH MED MESH"
+                        android:textColor="#050811"
+                        android:textStyle="bold"
+                        android:backgroundTint="#00F0FF"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+*.exe
+
+# Android Studio / IntelliJ IDEA
+*.iml
+.gradle
+/local.properties
+/.idea
+.idea/
+.navigation/
+captures/
+.externalNativeBuild
+.cxx/
+
+# Gradle build cache
+build/
+*/build/
+app/build/
+
+# Python & PyInstaller
+__pycache__/
+*.py[cod]
+*$py.class
+*.manifest
+*.spec.bak
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+
+# Operating System files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log

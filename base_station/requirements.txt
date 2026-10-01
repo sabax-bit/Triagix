@@ -1,0 +1,7 @@
+flask>=2.0.0
+flask-socketio>=5.0.0
+tkintermapview>=1.20
+sounddevice>=0.4.6
+numpy>=1.20.0
+pillow>=9.0.0
+pyinstaller>=5.0
